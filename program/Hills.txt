@@ -1,0 +1,24 @@
+set grid xtics ytics
+set ylabel '$y$' 
+set xlabel '$x$'
+set zlabel '$\Omega$'
+set terminal epslatex color size 12cm,10cm
+set grid ytics lc rgb "#bbbbbb" lw 1 lt 0
+set grid xtics lc rgb "#bbbbbb" lw 1 lt 0
+set output 'Hills.tex' 
+set key at screen 0.95, 0.9
+set xrange [1.1:1.4]
+set yrange [-0.2:0.2]
+set zrange [1.6:1.8]
+set ztics 0.1
+set ytics 0.1
+set xtics 0.05
+set autoscale y
+set dgrid3d 90, 90, 4                                    
+set view 60,20,1.,1.
+r1(x,y)=sqrt((x+0.05)**2 +y*y)
+r2(x,y)=sqrt((x-0.95)**2 +y*y)
+g(x,y)=0.5*(x*x+y*y)+0.95/r1(x,y)+0.05/r2(x,y)+0.05*0.95/2
+set cntrparam levels 6
+set contour base
+splot g(x,y) lw 3 lt 1

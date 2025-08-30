@@ -1,0 +1,361 @@
+% Farbige Formeln richtig einfärben über die group Umgebung
+\def\mathcolor#1#{\@mathcolor{#1}}
+\def\@mathcolor#1#2#3{%
+	\protect\leavevmode
+	\begingroup\color#1{#2}#3\endgroup
+}
+\newcommand*{\opcolor}[2]{\mathop{\color{#1}{#2}}}
+%%%%%%%%%%%%%% important variables
+
+\definecolor{color-important}{HTML}{
+3890b5
+}
+
+\definecolor{color-function-operator}{HTML}{
+0000b3
+}
+
+\definecolor{color-general-variable}{HTML}{
+808080
+}
+
+\definecolor{color-index}{HTML}{
+b30000
+}
+
+\definecolor{color-parameter}{HTML}{
+008000
+}
+
+\definecolor{color-stochastic}{HTML}{
+86592c
+}
+
+\definecolor{color-data}{HTML}{
+86592c
+}
+
+\definecolor{color-headline}{HTML}{
+0184bc
+}
+
+\definecolor{color-bold}{HTML}{
+4078f2
+}
+
+\definecolor{color-emphasis}{HTML}{
+e45649
+}
+
+\definecolor{color-mark}{HTML}{
+f2ae49
+}
+
+\definecolor{color-code}{HTML}{
+986801
+}
+
+
+
+%--- markup of latex
+
+%\newcommand{\cpart}[1]{\textcolor{color-headline}{\part{#1}}}
+
+%\newcommand{\csection}[1]{\textcolor{color-headline}{\section{#1}}}
+
+%\newcommand{\csubsection}[1]{\textcolor{color-headline}{\subsection{#1}}}
+
+%\newcommand{\csubsubsection}[1]{\textcolor{color-headline}{\subsubsection{#1}}}
+
+\newcommand{\cbold}[1]{\textcolor{color-bold}{\textbf{#1}}}
+
+\newcommand{\cemph}[1]{\textcolor{color-emphasis}{\emph{#1}}}
+
+\newcommand{\cund}[1]{\textcolor{color-mark}{\underline{#1}}}
+
+\newcommand{\csf}[1]{\textcolor{color-code}{\textsf{#1}}}
+
+\newcommand{\cimp}[1]{\textcolor{color-important}{\textbf{#1}}}
+
+\newcommand{\csto}[1]{\textcolor{color-stochastic}{\textbf{#1}}}
+
+\newcommand{\cpara}[1]{\textcolor{color-parameter}{\textbf{#1}}}
+
+\newcommand{\cgen}[1]{\textcolor{color-general-variable}{\textbf{#1}}}
+
+\newcommand{\cfunc}[1]{\textcolor{color-function-operator}{\textbf{#1}}}
+
+\newcommand{\cind}[1]{\textcolor{color-index}{\textbf{#1}}}
+
+\newtagform{index}{\color{color-index}(}{)}
+
+\usetagform{index}
+
+\hypersetup{hidelinks,colorlinks=false}%,colorlinks,citecolor={blue},urlcolor={color-link} ,linkcolor={color-important}
+
+%\renewcommand{\thepart}{\textcolor{color-important}{\Roman{section}}}
+%\renewcommand{\thesection}{\textcolor{color-important}{\arabic{section}}}
+%\renewcommand{\thesubsection}{\textcolor{color-important}{\arabic{section}.\alph{subsection}}}
+%\renewcommand{\thesubsubsection}{\textcolor{color-important}{\arabic{section}.\alph{subsection}.\roman{subsubsection}}}
+
+%\renewcommand\thesection{\roman{section}}
+
+%\allsectionsfont{\color{color-important}}
+
+\newcommand{\cref}[1]{\textcolor{color-index}{\textbf{\ref{#1}}}}
+\newcommand{\sref}[1]{\textcolor{color-important}{\textbf{\ref{#1}}}}
+\newcommand{\ccite}[1]{\textcolor{color-index}{\textbf{\cite{#1}}}}
+\newcommand{\cautocite}[1]{\textcolor{color-index}{\textbf{\autocite{#1}}}}
+
+\addtokomafont{disposition}{\color{color-important}}% color of all headings
+\addtokomafont{partentry}{\color{black}}% but not in the ToC
+\addtokomafont{sectionentry}{\color{black}}% but not in the ToC
+%\addtokomafont{subsectionentry}{\color{black}}% but not in the ToC
+%\addtokomafont{subsubsectionentry}{\color{black}}% but not in the ToC
+
+\renewcommand{\thetable}{\textcolor{color-index}{\textbf{\arabic{table}}}}
+\renewcommand{\thefigure}{\textcolor{color-index}{\textbf{\arabic{figure}}}}
+
+%--- Equations - formulas
+
+\newcommand{\nL}{{ \color{color-important} L } }
+
+\newcommand{\nnL}{{ \color{color-important} \mathcal{L}  } }
+
+\newcommand{\ntL}{\tilde{{\color{color-important}L}}}
+\newcommand{\nhL}{\hat{{\color{color-important}L}}}
+\newcommand{\nnnL}{{\color{color-important}\mathscr{L}}}
+\newcommand{\nH}{{\color{color-important}H}}
+\newcommand{\nnH}{{\color{color-important}\mathcal{H}}}
+%\newcommand{\nC}{{\color{color-important}C}}
+\newcommand{\nR}{{\color{color-important} R } }
+
+
+%--- stochastic
+\newcommand{\sz}{{\color{color-stochastic}z}}
+\newcommand{\sW}{{\color{color-stochastic}W}}
+
+%--- parameter
+\newcommand{\pD}{{\color{color-parameter}D}}
+\newcommand{\pA}{{\color{color-parameter}A}}
+%---
+
+
+%%%%%%%%%%%%%% generalized coordinates
+
+%\newcommand{\ca}{{\color{color-function-operator}a}
+\newcommand{\cx} { {\color{color-general-variable} x } }
+%\newcommand{\cX}{{\color{color-general-variable}X}
+%\newcommand{\cx}{{\color{color-important}x}
+\newcommand{\cy}{{\color{color-general-variable}y}}
+\newcommand{\cw}{{\color{color-general-variable}w}}
+%\newcommand{\cW}{{\color{color-general-variable}W}
+\newcommand{\ctau}{{\color{color-general-variable}\tau}}
+%\newcommand{\cpi}{{\color{color-general-variable}\pi}
+
+\newcommand{\cq}{{\color{color-general-variable}q}}
+
+\newcommand{\dcq}{\dot{\cq}}
+\newcommand{\ddcq}{\ddot{\cq}}
+
+\newcommand{\dddcq}{\dddot{\cq}}
+\newcommand{\ddddcq}{\ddot{\ddot{\cq}} }
+
+\newcommand{\cQ}{{\color{color-general-variable}Q}}
+\newcommand{\nQ}{{\color{color-general-variable}Q}}
+\newcommand{\dcQ}{\dot{\cQ}}
+\newcommand{\np}{{\color{color-general-variable}p}}
+\newcommand{\cp}{{\color{color-general-variable}p}}
+\newcommand{\dcp}{{\dot{\cp} }}
+\newcommand{\cpi}{{\color{color-general-variable}\pi}}
+\newcommand{\cphi}{{\color{color-general-variable}\varphi}}
+\newcommand{\cA}{{\color{color-general-variable}A }  }
+\newcommand{\cxi}{{\color{color-general-variable}\xi}}
+
+%---
+
+\newcommand{\ct}{{\color{color-general-variable}t}}
+\newcommand{\ccr}{{\color{color-general-variable}r}}
+\newcommand{\ctheta}{{\color{color-general-variable}\theta}}
+\newcommand{\fa}{{\color{color-general-variable} a } }
+
+%\newcommand{\fN}{{\color{color-general-variable} N } }
+\newcommand{\fA}{{\color{color-general-variable}A}}
+\newcommand{\fvA}{{\color{color-general-variable}\mathcal{A}}}
+
+
+%%%%%%%%%%%%%% functions
+
+\newcommand{\nW}{{\color{color-function-operator}W}}
+\newcommand{\neta}{{\color{color-function-operator}\eta}}
+\newcommand{\fu}{{\color{color-function-operator}u}}
+\newcommand{\dfu}{\dot{\fu}}
+\newcommand{\fv}{{\color{color-function-operator}v}}
+\newcommand{\nf}{{\color{color-function-operator}f}}
+\newcommand{\nh}{{\color{color-function-operator}h}}
+\newcommand{\nA}{{\color{color-function-operator}A}}
+\newcommand{\nB}{{\color{color-function-operator}B}}
+\newcommand{\nC}{{\color{color-function-operator}C}}
+\newcommand{\nV}{{\color{color-function-operator}V}}
+\newcommand{\nxi}{{\color{color-function-operator}\xi}}
+\newcommand{\dif}{\mathrm{{\color{color-function-operator}d } } }
+\newcommand{\ndelta}{{\color{color-function-operator}\delta}}
+\newcommand{\fN}{{\color{color-function-operator}N}}
+\newcommand{\fphi}{{\color{color-function-operator}\phi}}
+\newcommand{\fPhi}{{\color{color-function-operator}\Phi}}
+\newcommand{\fmu}{{\color{color-function-operator}\mu}}
+\newcommand{\dfmu}{\dot{\fmu}}
+\newcommand{\fr}{{\color{color-function-operator}r}}
+\newcommand{\fT}{{\color{color-function-operator}T}}
+\newcommand{\fln}{{\color{color-function-operator}\ln}}
+\newcommand{\fg}{{\color{color-function-operator}g}}
+\newcommand{\fq}{{\color{color-function-operator}q}}
+\newcommand{\fpi}{{\color{color-function-operator}\varpi}}
+\newcommand{\flambda}{{\color{color-function-operator}\lambda}}
+\newcommand{\fZ}{{\color{color-function-operator}Z}}
+\newcommand{\fX}{{\color{color-function-operator}X}}
+\newcommand{\fY}{{\color{color-function-operator}Y}}
+\newcommand{\fF}{{\color{color-function-operator}F}}
+\newcommand{\fV}{{\color{color-function-operator}V}}
+
+%---
+%\newcommand{\fa}{{\color{color-function-operator} a } }
+%\newcommand{\fN}{{\color{color-function-operator} N } }
+%\newcommand{\fA}{{\color{color-function-operator}A}}
+%\newcommand{\fvA}{{\color{color-function-operator}\mathcal{A}}}
+
+\newcommand{\fK}{{\color{color-function-operator} K } }
+\newcommand{\fE}{{\color{color-function-operator} E } }
+\newcommand{\fW}{{\color{color-function-operator} W } }
+
+\newcommand{\fc}{{\color{color-function-operator} c } }
+
+\newcommand{\fsin}{{\color{color-function-operator} \sin}}
+\newcommand{\fcos}{{\color{color-function-operator} \cos}}
+\newcommand{\ftan}{{\color{color-function-operator} \tan}}
+\newcommand{\farctan}{{\color{color-function-operator} \arctan}}
+\newcommand{\fcosh}{{\color{color-function-operator} \cosh}}
+\newcommand{\fsinh}{{\color{color-function-operator} \sinh}}
+\newcommand{\fexp}{{\color{color-function-operator} \exp}}
+
+
+
+\newcommand{\fl}{{\color{color-function-operator}l}}
+\newcommand{\fS}{{\color{color-function-operator}S}}
+\newcommand{\fGamma}{{\color{color-function-operator}\Gamma}}
+\newcommand{\fb}{{\color{color-function-operator}b}}
+
+\newcommand{\fG}{{\color{color-function-operator}G}}
+\newcommand{\fvG}{{\color{color-function-operator}\mathcal{G}}}
+\newcommand{\fs}{{\color{color-function-operator}s}}
+\newcommand{\fB}{{\color{color-function-operator}B}}
+\newcommand{\fvv}{\vec{\color{color-function-operator}v}}
+\newcommand{\ff}{{\color{color-function-operator}f}}
+\newcommand{\detg}{\sqrt{-{\color{color-function-operator}\fg} } }
+\newcommand{\fC}{{\color{color-function-operator}C}}
+\newcommand{\fepsilon}{{\color{color-function-operator}\varepsilon}}
+\newcommand{\fnu}{{\color{color-function-operator}\nu}}
+\newcommand{\fchi}{{\color{color-function-operator}\chi}}
+
+\newcommand{\finfty}{{\color{color-function-operator}\infty}}
+
+%%%%%%%%%%%%%% Operators
+
+\newcommand{\oupdelta}{{\color{color-function-operator}\updelta}}
+\newcommand{\ovary}{{\color{color-function-operator}\updelta}}
+\newcommand{\opartial}{\mathrm{\mathcolor{color-function-operator}\partial}}
+\newcommand{\osum}[2]{\ensuremath{\mathcolor{color-function-operator}{\sum _{\mathcolor{black}{#1}} ^{\mathcolor{black}{#2}} }}}
+\newcommand{\ooint}[2]{\ensuremath{\mathcolor{color-function-operator}{\int \limits_{\mathcolor{black}{#1}}^{\mathcolor{black}{#2}} }}}
+\newcommand{\osqrt}[1]{\ensuremath{\mathcolor{color-function-operator}{\sqrt{\mathcolor{black}{#1}} }}}
+\newcommand{\ocom}{{\color{color-function-operator},}}
+\newcommand{\osem}{{\color{color-function-operator};}}
+\newcommand{\odiag}{{\color{color-function-operator}\mathrm{diag}}}
+\newcommand{\odet}{{\color{color-function-operator}\mathrm{det}}}
+\newcommand{\oodot}[1]{\ensuremath{\mathcolor{color-function-operator}{\dot{\mathcolor{black}{#1}} }}}
+\newcommand{\ooddot}[1]{\ensuremath{\mathcolor{color-function-operator}{\ddot{\mathcolor{black}{#1}} }}}
+\newcommand{\ropartial}{{\opcolor{color-function-operator}\partial_{\ccr}}}
+\newcommand{\topartial}{{\opcolor{color-function-operator}\partial_{\ct}}}
+\newcommand{\npartial}{{\color{color-function-operator}\partial}}
+\newcommand{\tpartial}{{\color{color-function-operator}\partial_{\ct}}}
+
+%%%%%%%%%%%%%% indecies
+
+
+
+%---
+\newcommand{\iit}{{\color{color-index}t}}
+\newcommand{\ir}{{\color{color-index}r}}
+\newcommand{\ia}{{\color{color-index}a}}
+\newcommand{\ita}{{\color{color-index}\tilde{a} } }
+\newcommand{\ib}{{\color{color-index}b}}
+\newcommand{\itb}{{\color{color-index}\tilde{b}} }
+\newcommand{\ic}{{\color{color-index}c}}
+\newcommand{\id}{{\color{color-index}d}}
+\newcommand{\ie}{{\color{color-index}e}}
+\newcommand{\iif}{{\color{color-index}f}}
+\newcommand{\ii}{{\color{color-index}i}}
+\newcommand{\iij}{{\color{color-index}j}}
+\newcommand{\iin}{{\color{color-index}n}}
+\newcommand{\iim}{{\color{color-index}m}}
+\newcommand{\il}{{\color{color-index}l}}
+\newcommand{\ik}{{\color{color-index}k}}
+
+
+\newcommand{\ialpha}{{\color{color-index}\alpha}}
+\newcommand{\ibeta}{{\color{color-index}\beta}}
+\newcommand{\igamma}{{\color{color-index}\gamma}}
+\newcommand{\imu}{{\color{color-index}\mu}}
+\newcommand{\nmub[1]}{\bar{\nmu}_{#1}}
+\newcommand{\itheta}{{\color{color-index}\theta}}
+\newcommand{\iphi}{{\color{color-index}\varphi}}
+
+
+
+\newcommand{\iibn}{{\color{color-index}\boldsymbol{n}}}
+\newcommand{\iibm}{{\color{color-index}\boldsymbol{m}}}
+
+
+%%%%%%%%%%%%%% derivatives
+
+
+\newcommand{\dcphi}{\oodot{\cphi}}
+\newcommand{\ddcphi}{\ooddot{\cphi}}
+\newcommand{\dcA}{\oodot{\cA}}
+\newcommand{\ddcA}{\ooddot{\cA}}
+\newcommand{\dnq}{\oodot{\nnq}}
+
+\newcommand{\dcphii}{\oodot{\cphi}_{\nni}}
+\newcommand{\ddcphii}{\ooddot{\cphi}_{\nni}}
+\newcommand{\dcAi}{\oodot{\cA}_{\nni}}
+\newcommand{\ddcAi}{\ooddot{\cA}_{\nni}}
+\newcommand{\dnqi}{\oodot{\nnq}_{\nni}}
+%\newcommand{\partie[1]}{ \npartial_{\bar{\nmu}_{\scriptscriptstyle{#1}}}}
+\newcommand{\partie[1]}{ \npartial_{\bar{\nmu}_{#1}}}
+
+\newcommand{\da}{\oodot{\fa}}
+\newcommand{\dda}{\ooddot{\fa}}
+\newcommand{\ddda}{\fa^{(3)}}
+\newcommand{\dddda}{\fa^{(4)}}
+\newcommand{\dN}{\oodot{\fN}}
+\newcommand{\ddN}{\ooddot{\fN}}
+\newcommand{\dddN}{\fN^{(3)}}
+\newcommand{\dA}{\oodot{\fA_{\phantom{,}}}\!}
+%\newcommand{\ddA}{\color{color-function-operator}\ddot{A}}
+\newcommand{\ddA}{{\ooddot{\fA_{\phantom{,}}}}\!}%\color{color-general-variable}
+\newcommand{\dmu}{\oodot{\fmu}}
+\newcommand{\du}{\oodot{\fu}}
+\newcommand{\ddu}{\ooddot{\fu}}
+\newcommand{\dddu}{\fu^{(3)}}
+\newcommand{\dphi}{\oodot{\hspace{-0,35em}\fphi}}
+\newcommand{\dvA}{\oodot{\fvA_{\phantom{a}}}\!\!}
+\newcommand{\ddvA}{\ooddot{\fvA_{\phantom{a}}}\!\!}
+\newcommand{\depsilon}{\oodot{\fepsilon}}
+
+%%%%%%%%%%%%%% special variants
+
+\newcommand{\vv}{v}
+\newcommand{\MM}{M}
+\newcommand{\va}{{\color{color-index}\mathrm{a}}}
+\newcommand{\vV}{{\color{violet!80!black}V}}%#660066
+
+

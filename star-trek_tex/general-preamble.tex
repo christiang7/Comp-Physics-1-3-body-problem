@@ -1,0 +1,85 @@
+\usepackage[utf8x]{luainputenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsfonts}
+
+\usepackage{amssymb }
+%\usepackage{ngerman}
+\usepackage[ngerman, english]{babel}
+%\usepackage[english]{babel}
+\usepackage{ upgreek }
+%\usepackage{biblatex}
+%\usepackage[square,sort,comma,numbers]{natbib}% bibliography style for support for urls in the 
+\bibliographystyle{unsrtnat}%abbrvnat
+%bibliography
+%\usepackage{noweb}
+%\pagestyle{plain}% plain without headlines, with something more \pagestyle{noweb}
+%\noweboptions{shift,smallcode,longchunks}%german,smallcode,longchunks
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage{float}
+
+\usepackage{svg}
+
+%\usepackage{sectsty}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{graphviz}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{comment}
+\usepackage{geometry}
+\geometry{a4paper, portrait,left=2.5cm, right=2.5cm, top=2cm, bottom=2cm}
+
+
+\usepackage[tbtags,fleqn,reqno, % Platzierung der Formel-Tags;% es gibt auch centertags
+sumlimits,
+% Platzierung der Summationsgrenzen
+% (oberhalb/unterhalb)
+intlimits,
+% Platzierung der Integrationsgrenzen
+% (oberhalb/unterhalb)
+namelimits]
+% Platzierung der Grenzen
+% (oberhalb/unterhalb) bei Funktionen
+{amsmath}
+%\setlength{\mathindent}{0pt}
+
+%    \usepackage{mathpazo}
+%\usepackage[mathpazo]{flexisym}
+%\usepackage{breqn}% automatic line break in equations
+\usepackage{icomma}% für die richtige Kommadarstellung in Formeln und in Texten
+\usepackage{listings}% TXT Dateien in LaTeX einbinden
+\usepackage{ mathrsfs }
+\usepackage{ mathtools}
+%\usepackage{dsfont}
+% Notation page
+\usepackage{hyperref}
+%\hypersetup{hidelinks,colorlinks=false}
+%\usepackage[nomain]{glossaries}
+
+\usepackage{eurosym}
+\usepackage{textcomp}
+
+\usepackage[toc,page]{appendix}
+
+\usepackage{minted}
+\definecolor{lightgraycolor}{rgb}{0.95,0.95,0.95}
+\usemintedstyle{manni}
+
+\usepackage{csquotes}
+
+%%%%% todo
+
+%\newcommand\todo[1]{\marginpar[$\Rightarrow$]{$\Leftarrow$}{\textcolor{red}{#1}}}
+%\newcommand\todo[1]{\fbox{\textcolor{red}{#1}}}
+%\newcommand\todo[1]{\fcolorbox{white}{black}{ \textsf{{\large \textbf{\textcolor{white}{#1}}}}}}
+\newcommand{\todo}[1]{\par\noindent\colorbox{gray}
+	{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{ \textsf{\Large \textbf{\textcolor{white}{#1} } } } } }
+\newcommand{\toda}[1]{\par\noindent\colorbox{blue}
+	{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{ \textsf{\Large \textbf{\textcolor{white}{#1} } } } } }

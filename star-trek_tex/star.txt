@@ -1,0 +1,13 @@
+set grid xtics ytics
+set ylabel '$y$' offset screen 0.14,0.48  rotate by 0
+set xlabel '$x$'
+set terminal epslatex color size 14cm,7cm
+set grid ytics lc rgb "#bbbbbb" lw 1 lt 0
+set grid xtics lc rgb "#bbbbbb" lw 1 lt 0
+set output 'star_v2.tex' 
+unset key
+set yrange [-0.3:0.3]
+set xrange [-0.5:1.5]
+set ytics 0.1
+set parametric
+plot [t=0:2*pi] 0.01*cos(t)+0.95 lw 2, 0.01*sin(t) lw 2,0.2*cos(t)-0.05 lw 2, 0.2*sin(t) lw 2, 'planet9.dat' w l lw 2 lt -1
