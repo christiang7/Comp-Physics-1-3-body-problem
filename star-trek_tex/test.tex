@@ -6,7 +6,8 @@ a4paper]{scrartcl}
 \input{color-style.tex}
 \usepackage{longtable}
 \usepackage{physics}
-\begin{document}
+\usepackage{ tipa }
+\begin{document}\selectlanguage{german}
 \input{./Deck.tex}
 \tableofcontents
 \newpage
@@ -34,37 +35,21 @@ H&=\frac{(p_x + y)^2}{2}+\frac{(p_y-x)^2}{2}- \Omega(x,y)\\
 \end{align}
 In Gleichung \eqref{ham} ist $\mu=m_M$ und $m_E=1-\mu$. Die Gesamtmasse des Erd-Mond-Systems ist somit normiert. Die Hamiltonschen Bewegungsgleichungen lauten:
 \begin{align}
-&\left\{
-\begin{array}{l l}
-\dot x=\frac{dx}{dt}=\frac{\partial H}{\partial p_x}=p_x+y\\
-\dot y=\frac{dy}{dt}=\frac{\partial H}{\partial p_y}=p_y-x
-\end{array}
-\right.\ \label{Bew_glg_x}\\
-&\left\{
-\begin{array}{l l}
-\dot p_x=\frac{dp_x}{dt}=-\frac{\partial H}{\partial x}=p_y-x+\Omega_x\\
-\dot p_y=\frac{dp_y}{dt}=-\frac{\partial H}{\partial y}=-p_x-y+\Omega_y
-\end{array}
-\right.\ \label{Bew_glg_p}\\
-\text{mit }\Omega_x&=\frac{\partial\Omega}{\partial x}, \quad \Omega_y=\frac{\partial\Omega}{\partial y}\notag
+\dot x & =\frac{dx}{dt}=\frac{\partial H}{\partial p_x}=p_x+y\cr
+\dot y & =\frac{dy}{dt}=\frac{\partial H}{\partial p_y}=p_y-x \label{Bew_glg_x}\\
+\dot p_x & =\frac{dp_x}{dt}=-\frac{\partial H}{\partial x}=p_y-x+\Omega_x \cr
+\dot p_y & =\frac{dp_y}{dt}=-\frac{\partial H}{\partial y}=-p_x-y+\Omega_y \label{Bew_glg_p}\\
+\text{mit }\Omega_x & =\frac{\partial\Omega}{\partial x}, \quad \Omega_y=\frac{\partial\Omega}{\partial y}\notag
 \end{align}
 Leitet man  die Glg. \eqref{Bew_glg_x} nach $t$ ab und setzt Glg. \eqref{Bew_glg_p} ein so erhält man:
 \begin{align}\label{Bew_glg}
-\left\{
-\begin{array}{l l}
-\ddot x=\dot p_x+\dot y=p_y-x+\Omega_x+\dot y\\
-\ddot y=\dot p_y-\dot x=-p_x-y+\Omega_y-\dot x
-\end{array}
-\right.\
+\ddot x & =\dot p_x+\dot y=p_y-x+\Omega_x+\dot y\cr
+\ddot y & =\dot p_y-\dot x=-p_x-y+\Omega_y-\dot x
 \end{align}
 Stellt man Glg. \eqref{Bew_glg_x} nach $p=(p_x, p_y)^T$ um und setzt diese Ausdrücke in Glg. \eqref{Bew_glg} ein, erhält man schließlich die grundlegenden Bewegungsgleichungen, die wir für unserer weiteren Untersuchungen numerisch analysieren werden.
 \begin{align}\label{Bew}
-\left\{
-\begin{array}{l l}
-\ddot x=\dot y+x-x+\Omega_x+\dot y=2\dot y+\Omega_x\\
-\ddot y=-\dot x+y-y+\Omega_y-\dot x=-2\dot x+\Omega_y
-\end{array}
-\right.\
+\ddot x & =\dot y+x-x+\Omega_x+\dot y=2\dot y+\Omega_x\cr
+\ddot y & =-\dot x+y-y+\Omega_y-\dot x=-2\dot x+\Omega_y
 \end{align}
 Des Weiteren ist  die Energie des Systems $E$ wie folgt definiert.
 \begin{align}\label{Energie}
@@ -82,20 +67,16 @@ Aus Gleichung \eqref{Bew} erhält man $\Omega_y=\ddot y+2\dot x$ und $\Omega_x=\
 \newpage
 Für die numerische Analyse des Differentialgleichungssystem \eqref{Bew} transformieren wir dieses zu einem Differentialgleichungssystem 1. Ordnung mit 4 Variablen:
 \begin{align}\label{dfglg}
-&\left\{
-\begin{array}{l l l l}
-\dot z_1=z_3\\
-\dot z_2=z_4\\
-\dot z_3=2z_4+z_1-\frac{(1-\mu)\cdot(z_1+\mu)}{r_1^3}-\frac{\mu\cdot(z_1-1+\mu)}{r_2^3}=2z_4+\Omega_{z_1}(z_1,z_2)\\
-\dot z_4=-2z_3+z_2-\frac{(1-\mu)\cdot z_2}{r_1^3}-\frac{\mu \cdot z_2}{r_2^3}=-2z_3+\Omega_{z_2}(z_1,z_2)
-\end{array}
-\right.\ \\
-\text{mit } z_1&=x \text{ und } z_2=y\notag\\
-\text{wobei }r_1&=\sqrt{(z_1+\mu)^2+ z_2^2}, \quad r_2=\sqrt{(z_1-1+\mu)^2+ z_2^2}\notag
+\dot z_1 & =z_3\cr
+\dot z_2 & =z_4\cr
+\dot z_3 & =2z_4+z_1-\frac{(1-\mu)\cdot(z_1+\mu)}{r_1^3}-\frac{\mu\cdot(z_1-1+\mu)}{r_2^3}=2z_4+\Omega_{z_1}(z_1,z_2)\cr
+\dot z_4 & =-2z_3+z_2-\frac{(1-\mu)\cdot z_2}{r_1^3}-\frac{\mu \cdot z_2}{r_2^3}=-2z_3+\Omega_{z_2}(z_1,z_2)\\
+\text{mit } z_1 & =x \text{ und } z_2=y\notag\\
+\text{wobei }r_1 & =\sqrt{(z_1+\mu)^2+ z_2^2}, \quad r_2=\sqrt{(z_1-1+\mu)^2+ z_2^2}\notag
 \end{align}
 Um herauszufinden, wo die Lagrange-Punkte $L_1-L_5$ (Gleichgewichtspunkte, siehe Abb. \ref{pic:Lag}) liegen, erhalten wir mithilfe des Euler-Verfahren folgende Iterationsvorschrift:
 \begin{align}\label{glgbed}
-&\left\{
+\vec{z}^{\,n+1}&\left\{
 \begin{array}{l l l l}
 z_1^{n+1}=z_1^n+z_3^n h\\
 z_2^{n+1}=z_2^n+z_4^n h\\
@@ -103,10 +84,10 @@ z_3^{n+1}=z_3^n+\Omega_{z_1}(z_1^n,z_2^n)h\\
 z_4^{n+1}=z_4^n+\Omega_{z_2}(z_1^n,z_2^n)h
 \end{array}
 \right.\ \notag\\
-\Leftrightarrow \vec{z}^{\;n+1}&=\vec{z}^{\;n}+\vec {f} \left(z_1^n,z_2^n,z_3^n,z_4^n\right)\cdot h\\
+\Leftrightarrow \vec{z}^{\,n+1}&=\vec{z}^{\,n}+\vec {f} \left(z_1^n,z_2^n,z_3^n,z_4^n\right)\cdot h\\
 \text{mit } h&=t^{n+1}-t^{n} \text{ und }\vec{z}^{\;n}=\left(z_1^n,z_2^n,z_3^n,z_4^n\right)^T\notag
 \end{align}
-Die Gleichgewichtsbedingung für Gleichung \eqref{glgbed} lautet $\vec{z}^{\;n+1}=\vec{z}^{\;n}$ und ist erfüllt, wenn $\vec {f} (z_1^n,z_2^n,z_3^n,z_4^n)=\vec 0$ gilt. Somit sind dort $z_3^n=0$ und $z_4^n=0 \; \forall \; n \in \mathbb{Z}^+$. Für $L_1, L_2$ und $L_3$ ist $z_2=0$ und somit $\Omega_{z_2}(z_1,z_2=0)=0$. Damit vereinfacht sich die Findung dieser Lagrangepukte zur einfachen Bestimmung der Nullstelle von $\Omega_{z_1}(z_1,z_2=0)=0$. Diese bestimmen wir mithilfe des Bisektionsverfahren (Glg. \eqref{gleichung bisec}, S. \pageref{gleichung bisec}).
+Die Gleichgewichtsbedingung für Gleichung \eqref{glgbed} lautet $\vec{z}^{\,n+1}=\vec{z}^{\,n}$ und ist erfüllt, wenn $\vec {f} (z_1^n,z_2^n,z_3^n,z_4^n)=\vec 0$ gilt. Somit sind dort $z_3^n=0$ und $z_4^n=0 \, \forall \, n \in \mathbb{Z}^+$. Für $L_1, L_2$ und $L_3$ ist $z_2=0$ und somit $\Omega_{z_2}(z_1,z_2=0)=0$. Damit vereinfacht sich die Findung dieser Lagrangepukte zur einfachen Bestimmung der Nullstelle von $\Omega_{z_1}(z_1,z_2=0)=0$. Diese bestimmen wir mithilfe des Bisektionsverfahren (Glg. \eqref{gleichung bisec}, S. \pageref{gleichung bisec}).
 \newpage
 \part{Auswertung}
 \section{Lagrangepunkte und Hill's Region} \label{kap_2}
@@ -170,15 +151,11 @@ In Kapitel \ref{ch:grd} ergab sich die Differenzialgleichung \eqref{dfglg}. Aus 
 \end{align}
 Aufgrund der niedrigen Konvergenzordnung $q=1$ verwenden wir das Iterationsverfahren \eqref{glgbed} nicht. Stattdessen nutzen wir das folgende Verfahren mit Konvergenzordnung 3:
 \begin{align}\label{grd_glg_it}
-&\vec{z}^{\;n+1}= \vec{z}^{\;n} + h \left( \frac{1}{6} \vec{k}_1 +  \frac{4}{6}\vec{k}_2 + \frac{1}{6} \vec{k}_3 \right) \\
-&\text{mit}\notag \\
-&\left\{
-\begin{array}{l l l}
-\vec{k}_1=\vec{f}\left(\vec{z}^{\;n}\right)\\
-\vec{k}_2=\vec{f}\left(\vec{z}^{\;n}+\frac{h}{2} \vec{k}_{1}\right)\\
-\vec{k}_3=\vec{f}\left(\vec{z}^{\;n}-h \vec{k}_{1}+2h \vec{k}_{2}\right)
-\end{array}
-\right.\ \notag
+\vec{z}^{\,n+1} & = \vec{z}^{\,n} + h \left( \frac{1}{6} \vec{k}_1 +  \frac{4}{6}\vec{k}_2 + \frac{1}{6} \vec{k}_3 \right) \\
+\text{mit} & \notag \\
+\vec{k}_1 & =\vec{f}\left(\vec{z}^{\,n}\right)\cr
+\vec{k}_2 & =\vec{f}\left(\vec{z}^{\,n}+\frac{h}{2} \vec{k}_{1}\right)\cr
+\vec{k}_3 & =\vec{f}\left(\vec{z}^{\,n}-h \vec{k}_{1}+2h \vec{k}_{2}\right) \,.\notag
 \end{align}
 \subsection{Symplektisches Integrationsverfahren}
 In der Hamiltonischen Mechanik bietet es sich an das Symplektische Integrationsverfahren anzuwenden. Dabei wird der Gesamthamiltonoperator in zwei Operator aufgespalten. Speziell für unser Problem ergibt sich:
@@ -210,9 +187,9 @@ Hiermit gelangen wir zu der vollständigen Iterationsvorschrift für dieses Verf
 \begin{align*}
 \Psi _2 \left(\frac{h}{2}\right) \Psi _1 (h) \Psi _2 \left(\frac{h}{2}\right) \Leftrightarrow
 \begin{array}{l}
-\vec{p}^{\;n+\frac{1}{2}} = \vec{p}^{\;n} + \frac{h}{2}  \nabla _{\vec{x}}\: \Omega (\vec{x}^{\;n})\\
-\vec{x}^{\;n+1} = \vec{x}^{\;n} + h \nabla _{\vec{p}} \: H_1 (\vec{p}^{\;n},\vec{x}^{\;n})\\
-\vec{p}^{\;n+1} = \vec{p}^{\;n+\frac{1}{2}} + \frac{h}{2}  \nabla _{\vec{x}}\: \Omega (\vec{x}^{\;n})
+\vec{p}^{\,\,n+\frac{1}{2}} = \vec{p}^{\,\,n} + \frac{h}{2}  \nabla_{\vec{x}}\, \Omega (\vec{x}^{\,n})\\
+\vec{x}^{\,\,n+1} = \vec{x}^{\,\,n} + h \nabla_{\vec{p}} \, H_1 (\vec{p}^{\,n},\vec{x}^{\,n})\\
+\vec{p}^{\,\,n+1} = \vec{p}^{\,\,n+\frac{1}{2}} + \frac{h}{2}  \nabla_{\vec{x}}\, \Omega (\vec{x}^{\,n})
 \end{array}
 \end{align*}
 
@@ -222,12 +199,8 @@ Hiermit gelangen wir zu der vollständigen Iterationsvorschrift für dieses Verf
 Für den Test der Energieerhaltung haben wir beide numerische Verfahren benutzt, um ein Vergleich zu haben. Zur Berechnung der Energie im Symplektischen Verfahren müssen die berechneten Impulse wieder in die entsprechenden Geschwindigkeiten transformiert werden. Die Transformationsgleichungen lauten:
 
 \begin{align}\label{eq:p-v-trafo}
-\left\{
-\begin{array}{l l }
-	p_x &= \dot{x}-y \\
-	p_y &= \dot{y}+x
-\end{array}
-\right.\
+p_x & = \dot{x}-y \cr
+p_y & = \dot{y}+x .
 \end{align}
 \newpage
 \begin{figure}[htp!]
@@ -241,18 +214,18 @@ Für den Test der Energieerhaltung haben wir beide numerische Verfahren benutzt,
 \section{Interessante Trajektorien}
 Allgemein ist das Ende der Flugbahn erreicht, sobald eine der folgenden 4 Bedingungen zutreffen:
 \begin{align*}
-&\mathrm{if} (|x|>2)\\
-&\mathrm{if} (|y|>2)\\
-&\mathrm{if}\left((x+\mu)^2+y^2<R_1^2\right) \\
-&\mathrm{if}\left(((x-(1-\mu))^2+y^2<R_2^2\right) \\
+&\mathbf{if} (|x|>2)\\
+&\mathbf{if} (|y|>2)\\
+&\mathbf{if}\left((x+\mu)^2+y^2<R_1^2\right) \\
+&\mathbf{if}\left(((x-(1-\mu))^2+y^2<R_2^2\right) \\
 \text{wobei } R_1&=0.2=\text{Radius der Erde und }R_2=0.01=\text{Radius des Mondes }
 \end{align*}
 Weiterhin ist aus Gleichung \eqref{eq:p-v-trafo} (S. \pageref{eq:p-v-trafo}) bekannt, wie sich die initialen Impulse  $\vec p=(p_x,p_y)$ aus den initialen Geschwindigkeiten $\vec v=(v_x,v_y)$ berechnen. Die Vorgabe der jeweiligen $\vec v$ erfolgt in den folgenden jeweiligen Abschnitten.
 \subsection{Erde-Mond-Erde}\label{unter}
 Als erstes untersuchen wir hier Trajektorien denen es, wie im Abschnitt \ref{kap_2} beschrieben, energetisch möglich ist die Erde zu verlassen und den Mond zu umkreisen, jedoch nicht das Erde-Mond-System zu verlassen. Die Flugbahnen enden somit auf dem Mond oder auf der Erde, wobei wir unsere Betrachtung auf die Bahnen beschränken, welche auf der Erdoberfläche enden. Weiterhin ist $j$ die Anzahl der Mondumdrehungen. Diese wird berechnet, indem man annimmt, dass zu Beginn der Flugbahn $j=0$. Weiterhin wird $j$ gemäß der Bedingung \eqref{counter} bis zum Ende der Trajektorie erhöht:
 \begin{flalign}\label{counter}
-&\mathrm{if}(y(t_n)>0)\{\notag\\
-&\quad\mathrm{if}(\mathrm{sgn}(x(t_n)-(1-\mu))\neq\mathrm{sgn}(x(t_{n+1})-(1-\mu)))\quad	j=j+1;\\
+&\mathbf{if}(y(t_n)>0)\{\notag\\
+&\quad\mathbf{if}(\mathrm{sgn}(x(t_n)-(1-\mu))\neq\mathrm{sgn}(x(t_{n+1})-(1-\mu)))\quad	j=j+1;\\
 &\}\notag\\
 &\text{wobei } \mathrm{sgn}(x)\text{ im Abschnitt \ref{mathe} (S. \pageref{mathe}) definiert wurde}\notag
 \end{flalign}
@@ -284,7 +257,7 @@ In Abbildung \ref{fig:star2} ist die achtzehnfache Umdrehung des Mondes mit ansc
 \end{figure}\\
 In Abbildung \ref{fig:star3} ist die 18-fache Umdrehung des Mondes mit anschließendem Zurückkehren zur Erde dargestellt. Dies ist die maximale Anzahl an Mondumrundungen mit anschließender Erdrückkehr, welche wir mit dem Runge-Kutta-Verfahren gefunden haben.
 \newpage
-Vergleicht man die Trajektorien Abb. \ref{fig:star3} und Abb.\ref{fig:star2}, so erkennt man, dass die mit dem Runge-Kutta-Verfahren simulierten Trajektorien erst eine Erdumdrehung verrichten bevor sie den Mond umkreisen, was bei der Symplektischen Integration nicht der Fall ist. Außer, dass also sich die $\alpha$ stark unterscheiden, benötigt das Runge-Kutta-Verfahren für maximale Mondumdrehungen kleinere Anfangsgeschwindigkeiten als das Symplektische Integrationsverfahren. Unter Betrachtung der Abbildungen \ref{fig:int1} und \ref{fig:int2} (Abschnitt \ref{interessant}, S. \pageref{interessant}) wird ein weiterer Unterschied ersichtlich. Untersucht wurden die Trajektorien die auf der Mondoberfläche enden mit $|\vec {v}|$, wie bereits definiert, als Anfangsgeschwindigkeit. In Abb. \ref{fig:int1} ist mit 17 die maximale Anzahl von Mondumdrehungen mithilfe des Symplektische Integrationsverfahren gefunden worden. In Abb. \ref{fig:int2} wurde mit 1378 eine vergleichsweise große Anzahl an Mondumdrehungen mit dem Runge-Kutta-Verfahren simuliert, welche nicht die maximale Anzahl ist. Das Problem hierbei war die Rechenzeit, welche für eine so große Anzahl an Umdrehungen sehr groß wird.
+Vergleicht man die Trajektorien Abbildungen \ref{fig:star2} und \ref{fig:star3}, so erkennt man, dass die mit dem Runge-Kutta-Verfahren simulierten Trajektorien erst eine Erdumdrehung verrichten bevor sie den Mond umkreisen, was bei der Symplektischen Integration nicht der Fall ist. Außer, dass also sich die $\alpha$ stark unterscheiden, benötigt das Runge-Kutta-Verfahren für maximale Mondumdrehungen kleinere Anfangsgeschwindigkeiten als das Symplektische Integrationsverfahren. Unter Betrachtung der Abbildungen \ref{fig:int1} und \ref{fig:int2} (Abschnitt \ref{interessant}, S. \pageref{interessant}) wird ein weiterer Unterschied ersichtlich. Untersucht wurden die Trajektorien die auf der Mondoberfläche enden mit $|\vec {v}|$, wie bereits definiert, als Anfangsgeschwindigkeit. In Abb. \ref{fig:int1} ist mit 17 die maximale Anzahl von Mondumdrehungen mithilfe des Symplektische Integrationsverfahren gefunden worden. In Abb. \ref{fig:int2} wurde mit 1378 eine vergleichsweise große Anzahl an Mondumdrehungen mit dem Runge-Kutta-Verfahren simuliert, welche nicht die maximale Anzahl ist. Das Problem hierbei war die Rechenzeit, welche für eine so große Anzahl an Umdrehungen sehr groß wird.
 \subsection{Erde-Mond-Weltall}
 Die nächsten für uns interessanten Trajektorien sind diejenigen, welche nach ihren Mondumrundungen das Erde-Mond-System verlassen. Für die initiale Geschwindigkeit $\vec {v}$ gilt:
 \begin{align}\label{gesch3}
@@ -317,8 +290,8 @@ In Abbildung \ref{fig:starv3} ist die 12-fache Umdrehung des Mondes mit anschlie
 \subsection{Weltall-Mond-Erde-Weltall}
 Hierbei soll die im Weltall beginnende Trajektorie mehrere Mondumdrehungen aufweisen, bevor sie nach mehreren Erdumrundungen im Weltall verschwindet. Als Startpunkt wählen wir $(x_2+0.1,0)$, wobei $x_2$ die $x$-Koordinate des Lagrangepunktes $L_2$ ist. Für die Suche passen wir hier den Variationsalgorithmus an, indem wir ein $j_E$ definieren, was die Anzahl der Erdumrundungen angibt. Das für $j_E$ verwendete Zählverfahren gleicht dem für $j$ \eqref{counter}. Damit erweitern wir den Variationsalgorithmus um folgende Abbruchbedingung:\\
 \begin{align}\label{Abb2}
-&\mathrm{if} (j\ge 2)\{\notag\\
-&\quad	\mathrm{if}(j_E\ge 2) \text{ Abbruch};\\
+&\mathbf{if} (j\ge 2)\{\notag\\
+&\quad	\mathbf{if}(j_E\ge 2) \text{ Abbruch};\\
 &\}\notag
 \end{align}
 Der nun durch die Bedingung \eqref{Abb2} erweiterte Variationsalgorithmus findet eine Trajektorie, welche mindestens 2 Mond- bzw. 2 Erdumdrehungen aufweist, bevor die Trajektorie im Weltall endet. Weiterhin gestattet dieses Suchverfahren auch die Vorgabe von mehr als jeweils 2 Umrundungen.Für den Winkel gilt $\alpha\in [\pi,\frac{3 \pi}{2})$. Für die Geschwindigkeit $\vec {v}$ gilt weiterhin Bedingung \eqref{gesch3}:\\
@@ -337,9 +310,9 @@ Sei $f$ eine stetige Funktion, wobei $f(x_0)$ und $f(y_0)$ verschiedene Vorzeich
 \begin {align}\label{gleichung bisec}
 \left\{
 \begin{array}{l l}
-z_k=\frac{x_{k-1}-y_{k-1}}{2}, \quad \forall \; k \in \mathbb{Z^+}\\
-x_k=z_k,y_{k}=y_{k-1}, \quad \text{falls} \quad \mathop{\mathrm{sgn}}(f(z_k))=\mathop{\mathrm{sgn}}(f(x_{k-1}))\\
-y_k=z_k,x_{k}=x_{k-1}, \quad \text{sonst}
+z_k=\frac{x_{k-1}-y_{k-1}}{2}&, \forall \, k \in \mathbb{Z^+}\\
+x_k=z_k, y_{k}=y_{k-1}&, \text{falls} \, \mathop{\mathrm{sgn}}(f(z_k))=\mathop{\mathrm{sgn}}(f(x_{k-1}))\\
+y_k=z_k, x_{k}=x_{k-1}&, \text{sonst}
 \end{array}
 \right.\
 \end{align}\\
@@ -347,15 +320,15 @@ In der Gleichung \eqref{gleichung bisec} ist $\mathop{\mathrm{sgn}}(x)$ die Sign
 \begin{align*}
 \mathop{\mathrm{sgn}}(x)=
 \left\{
-\begin{array}{l l}
-1, \quad \forall \; x>0\\
-0, \quad  \text{falls} \quad x=0\\
--1, \quad \text{sonst}
+\begin{array}{r l}
+1,&  \forall \, x>0\\
+0,&   \text{falls} \, x=0\\
+-1,&  \text{sonst}
 \end{array}
 \right.\
 \end{align*}\\
 \section{Variationsalgorithmus} \label{vari}
-Sei $\vec x(t)$ eine Trajektorie um den Mond, wobei die Anzahl der Mondumdrehung $j$ maximiert werden soll, indem der Anfangswert $w$ variiert wird. Weiterhin soll gelten $w \in [a,b)$. Man definiert $\vec W\in \mathbb{R}^m$ und $\vec J\in \mathbb{N}^m$, wobei $\vec W=(w_0, w_1,..,w_{m-1})$ und $\vec J=(j_0, j_1,..,j_{m-1})$. Dabei ist $w_i=a+i\cdot w_{\mathrm{step}} \; \forall \; i\in\{0,1,2,..,m-1\} \text{ mit } w_{\mathrm{step}}=\frac{b-a}{m}$ und $j_i$ gibt die Anzahl an Umdrehungen an, welche mit dem Anfangswert $w_i$ erreicht wurden. Definiert man nun:
+Sei $\vec x(t)$ eine Trajektorie um den Mond, wobei die Anzahl der Mondumdrehung $j$ maximiert werden soll, indem der Anfangswert $w$ variiert wird. Weiterhin soll gelten $w \in [a,b)$. Man definiert $\vec W\in \mathbb{R}^m$ und $\vec J\in \mathbb{N}^m$, wobei $\vec W=(w_0, w_1,..,w_{m-1})$ und $\vec J=(j_0, j_1,..,j_{m-1})$. Dabei ist $w_i=a+i\cdot w_{\mathrm{step}} \, \forall \, i\in\{0,1,2,..,m-1\} \text{ mit } w_{\mathrm{step}}=\frac{b-a}{m}$ und $j_i$ gibt die Anzahl an Umdrehungen an, welche mit dem Anfangswert $w_i$ erreicht wurden. Definiert man nun:
 \begin{align*}
 j_{\mathrm{max}}&=\max\{j_0, j_1,...,j_{m-1}\}\\
 l&=\text{Anzahl der Maximalelemente in } \vec J\\
@@ -364,24 +337,24 @@ k&=\text{kleinster Index aller Maximalelemente in } \vec J
 Das heißt, sofern es $l>1$ Maximalelemente in $\vec J$ gibt, ist $k$ das Minimum der Menge der Indizes aller $j_{\mathrm{max}}$ in $\vec J$.\\
  Mithilfe dieser Grundlagen lautet der Variationsalgorithmus:
 \begin{flalign}
-&\mathrm{if}(l==m)\notag\\
+&\mathbf{if}(l==m)\notag\\
 &\quad w_\mathrm{step, neu}=\epsilon ;\notag\\
-&\mathrm{else}\{\notag\\
-&	\quad\mathrm{if}(l==1)\{\notag\\
-&\quad\quad		\mathrm{if} (k==0)\{\notag\\
+&\mathbf{else}\{\notag\\
+&	\quad\mathbf{if}(l==1)\{\notag\\
+&\quad\quad		\mathbf{if} (k==0)\{\notag\\
 &\quad \quad\quad w_0=w_{k};\notag\\
 &\quad	\quad\quad		w_\mathrm{step, neu}=\frac{ w_\mathrm{step, alt}}{m};\notag\\
 &\quad\quad		\}\notag\\
-&\quad\quad		\mathrm{if}(k==m-1)\{\notag\\
+&\quad\quad		\mathbf{if}(k==m-1)\{\notag\\
 &\quad \quad\quad w_0=w_{k-1};\notag\\
 &\quad	\quad\quad		w_\mathrm{step, neu}=\frac{ w_\mathrm{step, alt}}{m};\notag\\
 &\quad\quad			\}\label{algo}\\
-&\quad\quad\mathrm{else}\{\notag\\
+&\quad\quad\mathbf{else}\{\notag\\
 &\quad \quad\quad w_0=w_{k-1};\notag\\
 &\quad	\quad\quad		w_\mathrm{step, neu}=2\cdot\frac{ w_\mathrm{step, alt}}{m};\notag\\
 &\quad\quad\}\notag\\
 &	\quad	\}\notag\\
-&	\quad	\mathrm{else}\{\notag\\
+&	\quad	\mathbf{else}\{\notag\\
 &	\quad	\quad	w_0=w_k;\notag\\
 &\quad	\quad		w_\mathrm{step, neu}=(l-1)\cdot\frac { w_\mathrm{step,alt}}{m};\notag\\
 &\quad		\}\notag\\
@@ -389,7 +362,7 @@ Das heißt, sofern es $l>1$ Maximalelemente in $\vec J$ gibt, ist $k$ das Minimu
 \end{flalign}
 Wobei dieser Algorithmus endet, sofern die Abbruchbedingung \eqref{Abbruch} erfüllt ist.
 \begin{align}\label{Abbruch}
-\mathrm{if}(w_\mathrm{step, neu}\le\epsilon)
+\mathbf{if}(w_\mathrm{step, neu}\le\epsilon)
 \end{align}
 Sofern alle in $\vec W$ enthaltenen Anfangswerte die gleiche Anzahl an Mondumrundungen zur Folge haben, erfolgt der Abbruch. Existieren mehrere aber weniger als $m$ Maximalwerte, so beginnt der Algorithmus erneut ab dem Anfangswert $j_\mathrm{max}$ mit dem kleinsten Index $k$ und endet bei $j_\mathrm{max}$ mit dem größten Index. Es wird also nur zwischen diesen $j_\mathrm{max}$ geschaut, wobei wir davon ausgegangen sind, dass diese Maximalwerte hintereinanderliegen, also dass, wenn $l$ die Anzahl der $j_\mathrm{max}$ ist, der größter Index der Maximalwerte $k+l-1$ ist. Folglich ist $w_\mathrm{step, neu}=(l-1)\cdot\frac { w_\mathrm{step,alt}}{m}$. Tritt der Fall auf, dass es genau ein $j_\mathrm{max}$ gibt und $k$ dessen Index sei, so wird um diesen Maximalwert geschaut, also zwischen $w_{k-1}$ und $w_{k+1}$. Folglich ist hier $w_\mathrm{step, neu}=2\cdot\frac{ w_\mathrm{step, alt}}{m}$. Da dies für die Fälle, dass $k=0$ bzw. $k=m-1$ nicht möglich ist, wird hier zwischen $w_{0}$ und $w_{1}$ bzw. $w_{m-2}$ und $w_{m-1}$ geschaut. Somit ist die neue Schrittweite $w_\mathrm{step, neu}=\frac{ w_\mathrm{step, alt}}{m}$.
 \part{Anhang}

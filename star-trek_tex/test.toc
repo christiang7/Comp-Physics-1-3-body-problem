@@ -1,4 +1,5 @@
 \babel@toc {english}{}\relax 
+\babel@toc {german}{}\relax 
 \contentsline {part}{\numberline {I}Einleitung}{3}{part.1}%
 \contentsline {part}{\numberline {II}Grundlagen}{4}{part.2}%
 \contentsline {part}{\numberline {III}Auswertung}{6}{part.3}%
